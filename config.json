@@ -1,0 +1,15 @@
+{
+  "input": "./gallery",
+  "output": "./build_output",
+  "title": "Rock Haven Property LLC",
+  "sort-albums-by": "title",
+  "sort-media-by": "filename",
+  "download-photos": "copy",
+  "cleanup": true,
+  "theme": "cards",
+  "theme-style": "./custom.css",
+  "footer": "Copyright 2026 Rock Haven Property LLC. All rights reserved.",
+  "usage-stats": false,
+  "thumb-size": 300,
+  "home-album-name": "437 S Aiken Ave"
+}

@@ -1,0 +1,509 @@
+/* Begin Rock Haven Property LLC customization. */
+
+/* Modern Typography */
+:root {
+  --primary-color: #3e5a7e;
+  --primary-hover: #14152a;
+  --text-dark: #14152a;
+  --text-medium: #4b5563;
+  --text-light: #6b7280;
+  --bg-light: #f9fafb;
+  --bg-white: #ffffff;
+  --border-light: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --header-main: #e8edf4;
+  --header-breadcrumb: #dde5ef;
+}
+
+ul.rh {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+ul.rh li {
+  padding: 0.5rem 0;
+  padding-left: 1.75rem;
+  position: relative;
+  line-height: 1.7;
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+ul.rh li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.rh-nav {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+}
+
+.rh-table-thumbs-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.rh-table-wrapper {
+  flex: 0 0 auto;
+}
+
+.rh-thumbs-placeholder {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.rh-availability {
+  width: 100%;
+  max-width: 400px;
+  border-collapse: collapse;
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-sm);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rh-availability thead {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.rh-availability th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.025em;
+}
+
+.rh-availability td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.rh-availability tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.rh-availability tbody tr:hover {
+  background-color: var(--bg-light);
+}
+
+.rh-availability a.rh-available {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background-color: #22e03a;
+  color: #0b2e10;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rh-availability a.rh-available:hover {
+  background-color: #1bc22f;
+  text-decoration: underline;
+}
+
+/* "Coming soon" badge: amber, used before a unit is formally listed */
+.rh-availability a.rh-coming-soon,
+.rh-availability span.rh-coming-soon {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background-color: #fbbf24;
+  color: #3b2a04;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rh-availability a.rh-coming-soon:hover {
+  background-color: #f59e0b;
+  text-decoration: underline;
+}
+
+.rh-availability span.rh-renovating {
+  color: var(--text-medium);
+  font-style: italic;
+}
+
+/* Banner at the top of a unit page */
+.rh-banner {
+  margin: 0 0 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  background-color: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  color: #3b2a04;
+  font-weight: 600;
+}
+
+.rh-nav li {
+  margin: 0.5rem 0;
+}
+
+.rh-nav p {
+  margin: 1rem 0;
+  line-height: 1.8;
+  color: var(--text-dark);
+  font-size: 1.0625rem;
+}
+
+.rh-nav p:first-of-type {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-top: 0;
+}
+
+.rh-nav a:link,
+.rh-nav a:visited {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  border-bottom: 1px solid transparent;
+  display: inline;
+  padding: 0;
+  margin: 0;
+}
+
+.rh-nav a:hover {
+  color: var(--primary-hover);
+  border-bottom-color: var(--primary-hover);
+}
+
+.rh-a a:link,
+.rh-a a:visited {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.rh-a a:hover {
+  color: var(--primary-hover);
+}
+
+.rh-lls h1 {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.rh-lls a:link,
+.rh-lls a:visited {
+  display: inline-block;
+  width: auto;
+  max-width: 350px;
+  margin: 1rem auto;
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-color);
+  text-decoration: none;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s ease;
+}
+
+.rh-lls a:hover {
+  background-color: var(--primary-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--bg-light);
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 500;
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#container {
+  background-color: var(--bg-white);
+  box-shadow: var(--shadow-sm);
+}
+
+header {
+  text-align: center;
+  margin: 0;
+  background: var(--header-main);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50vw);
+  width: 150vw;
+  height: 100%;
+  background: inherit;
+  z-index: -1;
+}
+
+.rh-logo {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+header h1 {
+  padding: 2rem 1rem 0.25rem 1rem;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+header h1 a {
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.75rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  transition: opacity 0.2s ease;
+  display: block;
+}
+
+header h1 a:hover {
+  opacity: 0.9;
+}
+
+header h1 a::after {
+  content: "Apartments in Shadyside, Pittsburgh";
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-medium);
+  margin-top: 0.5rem;
+  letter-spacing: 0;
+}
+
+.breadcrumb-item {
+  color: var(--text-dark);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+nav.breadcrumbs {
+  margin: 0;
+  padding: 0.5rem 1rem 1.5rem 1rem;
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-dark);
+  font-size: 1.125rem;
+  background: transparent;
+}
+
+nav.breadcrumbs a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+nav.breadcrumbs a:hover {
+  color: var(--primary-hover);
+}
+
+#albums {
+  text-align: center;
+  padding: 0;
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+#albums a {
+  width: 200px;
+  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+#albums a .info {
+  font-size: 1rem;
+}
+
+#albums a h3 {
+  font-size: 1.125rem;
+}
+
+/* Style heading sections */
+.rh-nav h1,
+.rh-heading {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 2.5rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary-color);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  letter-spacing: 0.05em;
+}
+
+.rh-nav h1:first-of-type,
+.rh-heading:first-of-type {
+  margin-top: 1.5rem;
+}
+
+/* Nested lists */
+ul.rh ul.rh {
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* Contact section styling */
+.rh-nav p:last-of-type {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  padding: 1.25rem;
+  background-color: var(--bg-light);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color);
+  font-size: 1rem;
+}
+
+/* Gallery cards enhancement */
+.album,
+.media {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.album:hover,
+.media:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Center gallery images */
+#media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+}
+
+div.date {
+  display: none;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+  background-color: var(--bg-light);
+  color: var(--text-light);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border-light);
+}
+
+footer a.rh-github {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--text-light);
+  line-height: 0;
+  transition: color 0.2s ease;
+}
+
+footer a.rh-github:hover {
+  color: var(--text-dark);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .rh-nav {
+    padding: 1.5rem 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .rh-logo {
+    height: 80px;
+  }
+
+  header h1 a {
+    font-size: 1.75rem;
+  }
+
+  header h1 a::after {
+    font-size: 1rem;
+  }
+
+  .rh-nav h1,
+  .rh-heading {
+    font-size: 1.25rem;
+  }
+
+  nav.breadcrumbs {
+    font-size: 1rem;
+  }
+
+  .rh-table-thumbs-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rh-table-wrapper {
+    width: 100%;
+  }
+
+  .rh-availability {
+    max-width: 100%;
+  }
+
+  #albums {
+    justify-content: center;
+  }
+}
