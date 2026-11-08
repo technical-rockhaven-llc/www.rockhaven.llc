@@ -2,9 +2,9 @@
 
 /* Modern Typography */
 :root {
-  --primary-color: #3e5a7e;
-  --primary-hover: #14152a;
-  --text-dark: #14152a;
+  --primary-color: #33414e;
+  --primary-hover: #1f2832;
+  --text-dark: #1f2832;
   --text-medium: #4b5563;
   --text-light: #6b7280;
   --bg-light: #f9fafb;
@@ -13,8 +13,9 @@
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --header-main: #e8edf4;
-  --header-breadcrumb: #dde5ef;
+  --accent-color: #cca57a;
+  --header-main: #f5efe7;
+  --header-breadcrumb: #efe6da;
 }
 
 ul.rh {
@@ -36,7 +37,7 @@ ul.rh li::before {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--primary-color);
+  color: var(--accent-color);
   font-weight: bold;
   font-size: 1.1em;
 }
@@ -376,7 +377,7 @@ nav.breadcrumbs a:hover {
   color: var(--text-dark);
   margin: 2.5rem 0 1rem 0;
   padding-bottom: 0.5rem;
-  border-bottom: 3px solid var(--primary-color);
+  border-bottom: 3px solid var(--accent-color);
   letter-spacing: -0.01em;
   text-transform: uppercase;
   font-size: 1.125rem;
