@@ -25,13 +25,11 @@ def slab(xa, xb, y, thick=13):
     return [(xa, y), (xb, y), (xb, y+thick), (xa, y+thick)]
 
 shapes = [
-    flight(160, 800, 210, 730, 5),     # lower flight from the doormat
-    slab(148, 214, 730),               # mid landing
-    flight(150, 730, 200, 655, 6),     # upper flight (switchback, like the neighbor's)
-    slab(138, 226, 655, 16),           # top landing: concrete slab at the Unit 2B door
+    flight(156, 802, 206, 657, 11, thick=18),   # one straight flight from the doormat
+    slab(138, 226, 655, 16),                    # top landing: concrete slab at the Unit 2B door
 ]
 # round concrete column under the top landing's outer corner (drawn first, behind the stairs)
-cx0, cx1, ctop, cbot = 139, 151, 671, 806
+cx0, cx1, ctop, cbot = 139, 151, 671, 772
 d.rounded_rectangle(s([(cx0-3, ctop), (cx1+3, cbot)]), radius=8*SS, fill=NAVY+(255,))
 d.rounded_rectangle(s([(cx0, ctop), (cx1, cbot)]), radius=6*SS, fill=(205,207,204,255), outline=WHITE+(255,), width=2*SS)
 
