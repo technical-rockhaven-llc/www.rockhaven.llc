@@ -34,6 +34,8 @@ Then open http://localhost:8000 in your browser.
 - `desc_index.html` — the availability table and text on the home page.
 - `desc_u2b.html` — the text on the Unit 2B page (`Unit-2B.html`).
 - `custom.css` — the theme overrides, including the tagline under the site title.
-- `logo.png`, `favicon*`, `apple-touch-icon.png` — branding.
+- `logo.svg`, `logo-horizontal.svg`, `favicon*`, `apple-touch-icon.png` — branding (originals in `brand/`).
+- `source_photos/` — unannotated originals; `tools/` — scripts that produced the annotated
+  building photo and the Unit 2B floor plan (run with `python3 tools/<script> <input> <output>`).
 
 Pushing to `master` builds and deploys to GitHub Pages via `.github/workflows/gallery.yml`.
