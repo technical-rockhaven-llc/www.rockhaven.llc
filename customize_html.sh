@@ -39,19 +39,19 @@ inject_html "build_output/index.html" "desc_index.html"
 sudo cp -f move_thumbs.js build_output/public/
 
 # Copy the logo
-sudo cp -f logo.png build_output/public/
+sudo cp -f logo.svg logo.png build_output/public/
 
 # Copy the favicons (favicon.ico also at the site root, where browsers look by default)
-sudo cp -f favicon-32x32.png favicon-512.png apple-touch-icon.png favicon.ico build_output/public/
+sudo cp -f favicon.svg favicon-32x32.png favicon-512.png apple-touch-icon.png favicon.ico build_output/public/
 sudo cp -f favicon.ico build_output/
 
 # Inject the logo into the header (before the h1)
-sed -i -e 's|<header>|<header>\n      <img src="public/logo.png" alt="Rock Haven Property logo" class="rh-logo">|' "build_output/index.html"
+sed -i -e 's|<header>|<header>\n      <img src="public/logo.svg" alt="Rock Haven Property logo" class="rh-logo">|' "build_output/index.html"
 
 # Inject favicon into all HTML files
 for html_file in build_output/*.html; do
   if [ -f "$html_file" ]; then
-    sed -i -e 's|<head>|<head>\n    <link rel="icon" href="public/favicon.ico" sizes="any">\n    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">\n    <link rel="icon" type="image/png" sizes="512x512" href="public/favicon-512.png">\n    <link rel="apple-touch-icon" href="public/apple-touch-icon.png">|' "$html_file"
+    sed -i -e 's|<head>|<head>\n    <link rel="icon" href="public/favicon.ico" sizes="any">\n    <link rel="icon" type="image/svg+xml" href="public/favicon.svg">\n    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">\n    <link rel="icon" type="image/png" sizes="512x512" href="public/favicon-512.png">\n    <link rel="apple-touch-icon" href="public/apple-touch-icon.png">|' "$html_file"
   fi
 done
 
