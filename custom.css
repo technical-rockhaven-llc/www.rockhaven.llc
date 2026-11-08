@@ -275,15 +275,30 @@ header::before {
   z-index: -1;
 }
 
-.rh-logo {
-  height: 120px;
+/* Inline logo lockup (house + ROCK HAVEN PROPERTY) replaces the text title */
+header h1 a.rh-brand svg.rh-lockup {
+  display: block;
+  height: 100px;
   width: auto;
-  object-fit: contain;
-  flex-shrink: 0;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Visually hidden, still read by screen readers and search engines */
+.rh-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 header h1 {
-  padding: 2rem 1rem 0.25rem 1rem;
+  padding: 1.5rem 1rem 0.25rem 1rem;
   font-size: 1.5rem;
   margin: 0;
 }
@@ -470,8 +485,8 @@ footer a.rh-github:hover {
     padding: 1rem;
   }
 
-  .rh-logo {
-    height: 80px;
+  header h1 a.rh-brand svg.rh-lockup {
+    height: 64px;
   }
 
   header h1 a {

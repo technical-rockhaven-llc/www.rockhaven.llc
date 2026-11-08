@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="172 62 570 160" class="rh-lockup" overflow="visible" aria-hidden="true" focusable="false">
+<g transform="translate(154 35) scale(1.05)">
+<path d="M34 96 L100 40 L166 96" fill="none" stroke="#30414F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M48 90 L48 166 L152 166 L152 90" fill="none" stroke="#30414F" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="66" y="132" width="68" height="22" rx="11" fill="#30414F"/>
+<rect x="74" y="106" width="52" height="20" rx="10" fill="#30414F"/>
+<rect x="85" y="82" width="30" height="18" rx="9" fill="#D4A373"/>
+</g>
+<rect x="374" y="70" width="2" height="140" fill="#DDE2E6"/>
+<text x="396" y="136" font-size="50" fill="#30414F" style="font-family:'Outfit','Avenir Next','Segoe UI',sans-serif;font-weight:600;letter-spacing:0.04em;text-transform:uppercase">Rock Haven</text>
+<text x="396" y="177" font-size="26" fill="#D4A373" style="font-family:'Outfit','Avenir Next','Segoe UI',sans-serif;font-weight:500;letter-spacing:0.36em;text-transform:uppercase">Property</text>
+</svg>

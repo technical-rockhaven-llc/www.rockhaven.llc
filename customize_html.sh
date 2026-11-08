@@ -39,14 +39,14 @@ inject_html "build_output/index.html" "desc_index.html"
 sudo cp -f move_thumbs.js build_output/public/
 
 # Copy the logo
-sudo cp -f logo.svg logo.png build_output/public/
+sudo cp -f logo.svg build_output/public/
 
 # Copy the favicons (favicon.ico also at the site root, where browsers look by default)
 sudo cp -f favicon.svg favicon-32x32.png favicon-512.png apple-touch-icon.png favicon.ico build_output/public/
 sudo cp -f favicon.ico build_output/
 
-# Inject the logo into the header (before the h1)
-sed -i -e 's|<header>|<header>\n      <img src="public/logo.svg" alt="Rock Haven Property logo" class="rh-logo">|' "build_output/index.html"
+# Replace the text title with the inline logo lockup on every page
+sudo python3 inject_header.py build_output/*.html
 
 # Inject favicon into all HTML files
 for html_file in build_output/*.html; do
