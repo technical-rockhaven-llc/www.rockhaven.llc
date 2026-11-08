@@ -11,47 +11,47 @@ SS = 3
 ov = Image.new("RGBA", (W*SS, H*SS), (0,0,0,0)); d = ImageDraw.Draw(ov)
 def s(pts): return [(round(x*SS), round(y*SS)) for x,y in pts]
 
-def flight(x0, y0, x1, y1, n, thick=15):
-    """Solid stair flight rising left->right from (x0,y0) to (x1,y1): step profile on top, slab underneath."""
-    run, rise = (x1-x0)/n, (y0-y1)/n
-    top = [(x0, y0)]
-    for i in range(n):
-        x, y = top[-1]
-        top += [(x, y-rise), (x+run, y-rise)]
-    slope = (x1-x0)/(y0-y1)
-    return top + [(x1, y1+thick), (x0+thick*slope*0.3, y0+thick*0.2)]
+# --- Unit 2B stairs, seen straight on --------------------------------------
+# One straight concrete flight running back from the doormat to a landing at the
+# Unit 2B door, so from the street it reads as a stack of steps (like the front steps).
+N_STEPS = 11
+BOTTOM_Y, TOP_Y = 806, 659                   # bottom of first riser, top of last tread
+BOTTOM_X = (148, 210)                        # stair width at the doormat
+TOP_X = (156, 206)                           # slightly narrower farther back
+RISER, TREAD = (176, 179, 178, 255), (230, 230, 226, 255)
 
-def slab(xa, xb, y, thick=13):
-    return [(xa, y), (xb, y), (xb, y+thick), (xa, y+thick)]
+def lerp(a, b, t): return a + (b - a) * t
+step_h = (BOTTOM_Y - TOP_Y) / N_STEPS
+steps = []
+for i in range(N_STEPS):
+    t = i / (N_STEPS - 1)
+    xl, xr = lerp(BOTTOM_X[0], TOP_X[0], t), lerp(BOTTOM_X[1], TOP_X[1], t)
+    yb = BOTTOM_Y - i * step_h; yt = yb - step_h
+    steps.append((xl, xr, yt, yb))
 
-shapes = [
-    flight(156, 802, 206, 657, 11, thick=18),   # one straight flight from the doormat
-    slab(138, 226, 655, 16),                    # top landing: concrete slab at the Unit 2B door
-]
-# round concrete column under the top landing's outer corner (drawn first, behind the stairs)
-cx0, cx1, ctop, cbot = 139, 151, 671, 772
-d.rounded_rectangle(s([(cx0-3, ctop), (cx1+3, cbot)]), radius=8*SS, fill=NAVY+(255,))
-d.rounded_rectangle(s([(cx0, ctop), (cx1, cbot)]), radius=6*SS, fill=(205,207,204,255), outline=WHITE+(255,), width=2*SS)
+# navy edge around the whole flight, then each step: lighter tread on top of a riser
+outline = [(steps[0][0], steps[0][3]), (steps[0][1], steps[0][3]),
+           (steps[-1][1], steps[-1][2]), (steps[-1][0], steps[-1][2])]
+d.polygon(s(outline), outline=NAVY+(255,), width=7*SS)
+for xl, xr, yt, yb in steps:
+    tread_b = yt + step_h * 0.38
+    d.rectangle(s([(xl, tread_b), (xr, yb)]), fill=RISER)
+    d.rectangle(s([(xl, yt), (xr, tread_b)]), fill=TREAD)
+    d.line(s([(xl, yt), (xr, yt)]), fill=WHITE+(255,), width=2*SS)
+d.polygon(s(outline), outline=WHITE+(255,), width=3*SS)
 
-# solid concrete look: sweep each shape back toward the wall to give it width,
-# then draw the front face light with the white outline over a navy edge
-DEPTH, DX, DY = 12, -1.0, -0.45          # extrusion direction (back and up)
-def shifted(poly, k): return [(x+DX*k, y+DY*k) for x, y in poly]
-for poly in shapes:
-    d.polygon(s(shifted(poly, DEPTH)), outline=NAVY+(255,), width=7*SS)
-    d.polygon(s(poly), outline=NAVY+(255,), width=7*SS)
-for poly in shapes:
-    for k in range(DEPTH, 0, -1):
-        d.polygon(s(shifted(poly, k)), fill=(150,156,160,255))
-    d.polygon(s(shifted(poly, DEPTH)), outline=WHITE+(255,), width=2*SS)
-    d.polygon(s(poly), fill=(226,226,222,255), outline=WHITE+(255,), width=3*SS)
+# landing slab at the top, level and straight on
+slab = [(138, 643), (226, 643), (226, 659), (138, 659)]
+d.polygon(s(slab), outline=NAVY+(255,), width=7*SS)
+d.polygon(s(slab), fill=(226,226,222,255), outline=WHITE+(255,), width=3*SS)
+
 # railing along the outer part of the top landing
 for w, c in [(6, NAVY), (2.5, WHITE)]:
-    d.line(s([(138, 633), (186, 633)]), fill=c+(255,), width=round(w*SS))
+    d.line(s([(138, 621), (186, 621)]), fill=c+(255,), width=round(w*SS))
     for x in range(140, 188, 9):
-        d.line(s([(x, 633), (x, 655)]), fill=c+(255,), width=round(w*SS*0.8))
+        d.line(s([(x, 621), (x, 643)]), fill=c+(255,), width=round(w*SS*0.8))
 # door on the side wall, under the awning
-door = [(210,582),(224,582),(224,655),(210,655)]
+door = [(210,578),(224,578),(224,643),(210,643)]
 d.polygon(s(door), outline=NAVY+(255,), width=6*SS)
 d.polygon(s(door), fill=(255,255,255,120), outline=WHITE+(255,), width=3*SS)
 # green awning over the landing (visible through the tree at ~200-220, 560-577)
