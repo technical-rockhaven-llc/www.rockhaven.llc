@@ -319,7 +319,7 @@ header h1 a:hover {
 }
 
 header h1 a::after {
-  content: "Apartments in Shadyside, Pittsburgh";
+  content: "5 minute walk to UPMC Shadyside";
   display: block;
   font-size: 1.125rem;
   font-weight: 400;
